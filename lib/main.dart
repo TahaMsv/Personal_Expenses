@@ -34,34 +34,66 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Personal Expenses'),
       ),
-      body: Container(
-        child: Column(
-          children: <Widget>[
-            Container(
-              child: Card(
-                child: Text('Chart'),
-              ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          Container(
+            width: double.infinity,
+            child: Card(
+              color: Colors.blue,
+              child: Text('Chart'),
+              elevation: 5,
             ),
-            Container(
+          ),
+          Card(
+            elevation: 5,
+            child: Container(
               child: Column(
                 children: transactions.map((tx) {
-                  return Container(
-                   child: Row(
-                     children:<Widget>[
-                       Container(child: Text(tx.title),),
-                       Container(child: Column(children: <Widget>[
-                         Container(child: Text(tx.id),),
-                         Container(child: Text( '\$${tx.amount}'),),
-              
-                       ],),),
-                     ]
-                   ),
+                  return Card(
+                    child: Row(children: <Widget>[
+                      Container(
+                        margin: EdgeInsets.symmetric(
+                          vertical: 10,
+                          horizontal: 15,
+                        ),
+                        padding: EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            width: 2,
+                            color: Colors.purple,
+                          ),
+                        ),
+                        child: Text(
+                          '\$${tx.amount}',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Colors.purple,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              tx.title,
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ]),
                   );
                 }).toList(),
               ),
             ),
-          ],
-        ),
+          )
+        ],
       ),
     );
   }
