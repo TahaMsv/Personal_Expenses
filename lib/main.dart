@@ -42,6 +42,15 @@ class MyHomePage extends StatelessWidget {
                 child: Text('Chart'),
               ),
             ),
+            Container(
+              child: Column(
+                children: transactions.map((tx) {
+                  return Container(
+                    child: Card(child: Text(tx.id),),
+                  );
+                }).toList(),
+              ),
+            ),
           ],
         ),
       ),
