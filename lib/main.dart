@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import './Transaction.dart';
+
 void main() => runApp(MyApp());
 
-class  MyApp extends StatelessWidget {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -28,10 +29,21 @@ class MyHomePage extends StatelessWidget {
     ),
   ];
   @override
-  Widget  build(BuildContext context) {
+  Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Personal Expenses'),),
+      appBar: AppBar(
+        title: Text('Personal Expenses'),
+      ),
       body: Container(
+        child: Column(
+          children: <Widget>[
+            Container(
+              child: Card(
+                child: Text('Chart'),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
