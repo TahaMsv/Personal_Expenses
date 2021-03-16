@@ -12,6 +12,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Personal Expenses',
       home: MyHomePage(),
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+        accentColor: Colors.amber,
+      ),
     );
   }
 }
@@ -54,10 +58,10 @@ class _MyHomePageState extends State<MyHomePage> {
       context: ctx,
       builder: (_) {
         return GestureDetector(
-          onTap: () {
-          },
+          onTap: () {},
           child: NewTransaction(_addTransaction),
-          behavior: HitTestBehavior.opaque,);
+          behavior: HitTestBehavior.opaque,
+        );
       },
     );
   }
