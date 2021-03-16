@@ -26,20 +26,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<Transaction> _userTransactions = [
-    Transaction(
-      id: 't1',
-      title: 'New Shoes',
-      amount: 69.99,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'Weekly Groceries',
-      amount: 16.53,
-      date: DateTime.now(),
-    ),
-  ];
+  final List<Transaction> _userTransactions = [];
 
   void _addTransaction(String titleTx, double amountTx) {
     final newTx = new Transaction(
@@ -92,12 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Column(
               children: <Widget>[
-                Card(
-                  elevation: 5,
-                  child: Container(
-                    child: TransactionsList(_userTransactions),
-                  ),
-                )
+                 TransactionsList(_userTransactions),
               ],
             ),
           ],
