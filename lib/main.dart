@@ -16,6 +16,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
         accentColor: Colors.amber,
+        textTheme: ThemeData.light().textTheme.copyWith(
+          title:TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
+          ) ,
+          button: TextStyle(color: Colors.white))
       ),
     );
   }
@@ -29,11 +35,11 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransactions = [];
 
-  void _addTransaction(String titleTx, double amountTx) {
+  void _addTransaction(String titleTx, double amountTx, DateTime dateTime) {
     final newTx = new Transaction(
         title: titleTx,
         amount: amountTx,
-        date: DateTime.now(),
+        date: dateTime,
         id: DateTime.now().toString());
 
     setState(() {
