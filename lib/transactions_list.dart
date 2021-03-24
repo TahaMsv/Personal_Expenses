@@ -8,6 +8,7 @@ class TransactionsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth=MediaQuery.of(context).size.width;
     return LayoutBuilder(builder: (ctx, constraint) {
       return Container(
         height: constraint.maxHeight * 0.6,
@@ -48,11 +49,17 @@ class TransactionsList extends StatelessWidget {
                       subtitle: Text(
                         userTransactions[index].date.toString(),
                       ),
-                      trailing: IconButton(
+                      trailing: screenWidth>360?  FlatButton.icon(
+                        label: Text('Delete'),
+                        icon: Icon(Icons.delete),
+                        textColor: Theme.of(context).errorColor,
+                        onPressed: () => deleteTx(userTransactions[index].id),
+                      ):
+                       IconButton(
                         icon: Icon(Icons.delete),
                         color: Theme.of(context).errorColor,
                         onPressed: () => deleteTx(userTransactions[index].id),
-                      ),
+                      )
                     ),
                   );
                 },
