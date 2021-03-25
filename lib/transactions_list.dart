@@ -4,7 +4,7 @@ import './Transaction.dart';
 class TransactionsList extends StatelessWidget {
   final List<Transaction> userTransactions;
   final Function deleteTx;
-  TransactionsList(this.userTransactions, this.deleteTx);
+  const TransactionsList(this.userTransactions, this.deleteTx);
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class TransactionsList extends StatelessWidget {
         child: userTransactions.isEmpty
             ? Column(
                 children: <Widget>[
-                  Text('No transaction added yet!'),
+                  const Text('No transaction added yet!'),
                   SizedBox(
                     height: constraint.maxHeight * 0.05,
                   ),
@@ -50,13 +50,13 @@ class TransactionsList extends StatelessWidget {
                         userTransactions[index].date.toString(),
                       ),
                       trailing: screenWidth>360?  FlatButton.icon(
-                        label: Text('Delete'),
-                        icon: Icon(Icons.delete),
+                        label:const Text('Delete'),
+                        icon:const Icon(Icons.delete),
                         textColor: Theme.of(context).errorColor,
                         onPressed: () => deleteTx(userTransactions[index].id),
                       ):
                        IconButton(
-                        icon: Icon(Icons.delete),
+                        icon:const Icon(Icons.delete),
                         color: Theme.of(context).errorColor,
                         onPressed: () => deleteTx(userTransactions[index].id),
                       )

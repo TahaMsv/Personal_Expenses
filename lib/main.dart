@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Personal Expenses',
+      title:'Personal Expenses',
       home: MyHomePage(),
       theme: ThemeData(
           primarySwatch: Colors.purple,
@@ -87,22 +87,22 @@ class _MyHomePageState extends State<MyHomePage> {
         MediaQuery.of(context).orientation == Orientation.landscape;
     final PreferredSizeWidget appBar = Platform.isIOS
         ? CupertinoNavigationBar(
-            middle: Text('Personal Expenses'),
+            middle:const Text('Personal Expenses'),
             trailing: Row(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 GestureDetector(
-                  child: Icon(CupertinoIcons.add),
+                  child:const Icon(CupertinoIcons.add),
                   onTap: () => _startAddNewTrabsaction(context),
                 )
               ],
             ),
           )
         : AppBar(
-            title: Text('Personal Expenses'),
+            title:const Text('Personal Expenses'),
             actions: <Widget>[
               IconButton(
-                icon: Icon(Icons.add),
+                icon:const Icon(Icons.add),
                 onPressed: () => _startAddNewTrabsaction(context),
               )
             ],
@@ -156,7 +156,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Platform.isIOS
         ? CupertinoPageScaffold(
             child: pageBody,
-            navigationBar: appBar,
+            navigationBar:appBar,
           )
         : Scaffold(
             appBar: appBar,
@@ -166,7 +166,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 : FloatingActionButtonLocation.centerFloat,
             floatingActionButton: FloatingActionButton(
               onPressed: () => _startAddNewTrabsaction(context),
-              child: Icon(Icons.add),
+              child:const Icon(Icons.add),
             ),
           );
   }
